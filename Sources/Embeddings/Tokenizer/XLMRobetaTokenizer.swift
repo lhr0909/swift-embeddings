@@ -8,7 +8,7 @@ public final class XLMRobetaTokenizer: Sendable {
     private let tokenizer: Mutex<SentencepieceTokenizer>
     private let addedTokens: [String: Int]
 
-    init(tokenizerModelUrl: URL, addedTokens: [String: Int]) throws {
+    public init(tokenizerModelUrl: URL, addedTokens: [String: Int]) throws {
         let sentencepieceTokenizer = try SentencepieceTokenizer(modelPath: tokenizerModelUrl.path)
         self.tokenizer = Mutex(sentencepieceTokenizer)
         self.addedTokens = addedTokens
