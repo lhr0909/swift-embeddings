@@ -95,11 +95,11 @@ public final class XLMRobetaTokenizer: Sendable {
 
 @available(macOS 15.0, iOS 18.0, tvOS 18.0, visionOS 2.0, watchOS 11.0, *)
 extension XLMRobetaTokenizer: TextTokenizer {
-    var unknownTokenId: Int? {
+    public var unknownTokenId: Int? {
         unkTokenId
     }
 
-    func tokenizeText(
+    public func tokenizeText(
         _ text: String,
         maxLength: Int?,
         addSpecialTokens: Bool
