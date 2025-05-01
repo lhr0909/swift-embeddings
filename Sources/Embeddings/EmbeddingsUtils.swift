@@ -16,7 +16,7 @@ func downloadModelFromHub(
     )
 }
 
-enum EmbeddingsError: Error {
+public enum EmbeddingsError: Error {
     case fileNotFound
     case invalidFile
 }
