@@ -66,13 +66,11 @@ extension Model2Vec {
         ) throws -> MLTensor? {
             let tokensIds = try tokenizer.tokenizeText(
                 text, maxLength: maxLength, addSpecialTokens: false)
-            // FIXME: this is a hack to remove the offset of 4
             let tokens =
                 if let unknownTokenId = tokenizer.unknownTokenId {
                     tokensIds.filter { $0 != unknownTokenId }
-                             .map { $0 - 4 }
                 } else {
-                    tokensIds.map { $0 - 4 }
+                    tokensIds
                 }
             return tokens.isEmpty ? nil : MLTensor(shape: [tokens.count], scalars: tokens)
         }

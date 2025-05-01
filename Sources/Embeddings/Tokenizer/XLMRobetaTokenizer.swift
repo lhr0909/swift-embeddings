@@ -104,11 +104,12 @@ extension XLMRobetaTokenizer: TextTokenizer {
         maxLength: Int?,
         addSpecialTokens: Bool
     ) throws -> [Int32] {
+        // FIXME: this is a hack to remove the offset of 4
         try tokenize(
             text,
             maxLength: maxLength,
             padToLength: nil,
             addSpecialTokens: addSpecialTokens
-        ).map { Int32($0) }
+        ).map { Int32($0) - 4 }
     }
 }
